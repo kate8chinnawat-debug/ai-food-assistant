@@ -1,0 +1,20 @@
+# Credentials — NEVER commit these
+service_account.json
+.env
+*.key
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db

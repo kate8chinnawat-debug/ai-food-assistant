@@ -1,0 +1,117 @@
+{
+  "name": "AI Restaurant Scorer — Auto-Score New Restaurant",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": { "__rl": true, "value": "{{GOOGLE_SPREADSHEET_ID}}", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "clean_data", "mode": "name" },
+        "event": "rowAdded",
+        "pollTimes": { "item": [{ "mode": "everyMinute" }] }
+      },
+      "id": "node_001",
+      "name": "Watch clean_data — New Row",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 4,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract fields from new row and build scoring payload\nconst row = items[0].json;\nconst rating = parseFloat(row.googleRating) || 0;\nconst reviews = parseInt(row.reviewCount) || 0;\nconst price = parseInt(row.pricePerPersonTHB) || 0;\nconst dist = parseInt(row.btsMrtDistanceM) || 999;\nconst group = row.suitableForGroup;\nconst missing = parseInt(row.missingFieldCount) || 0;\n\n// Score calculations (locked weights)\nconst s_rating = Math.min(25, (rating/5)*15 + Math.min(10, reviews/100));\nconst s_group = group === 'True' || group === true ? 20 : (group === 'partial' ? 10 : (group === 'False' || group === false ? 0 : 5));\nconst s_price = price <= 300 ? 15 : price <= 500 ? 12 : price <= 800 ? 8 : 3;\nconst s_travel = dist <= 500 ? 15 : dist <= 1000 ? 10 : 5;\nconst s_complete = Math.round(((11 - missing) / 11) * 15 * 10) / 10;\nconst uniquenessPrompt = `Rate the uniqueness/experience of this restaurant on a scale 1-10: ${row.restaurantName}. Notes: ${row.notes}. Return ONLY a number 1-10.`;\n\nreturn [{ json: { ...row, s_rating, s_group, s_price, s_travel, s_complete, uniquenessPrompt } }];"
+      },
+      "id": "node_002",
+      "name": "Calculate Sub-Scores",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "model": "claude-haiku-4-5-20251001",
+          "max_tokens": 10,
+          "messages": [
+            { "role": "user", "content": "={{$json.uniquenessPrompt}}" }
+          ]
+        }
+      },
+      "id": "node_003",
+      "name": "Claude API — Uniqueness Score",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const prev = items[0].json;\nconst response = items[0].json.content?.[0]?.text || '5';\nconst s_unique = Math.min(10, Math.max(1, parseInt(response.trim()) || 5));\nconst total = Math.round((prev.s_rating + prev.s_group + prev.s_price + prev.s_travel + prev.s_complete + s_unique) * 100) / 100;\nreturn [{ json: { ...prev, s_unique, totalScore: total } }];"
+      },
+      "id": "node_004",
+      "name": "Compute Total Score",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": { "__rl": true, "value": "{{GOOGLE_SPREADSHEET_ID}}", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "scoring", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "restaurantName": "={{$json.restaurantName}}",
+            "area":           "={{$json.area}}",
+            "totalScore":     "={{$json.totalScore}}",
+            "scoreRatingReview":  "={{$json.s_rating}}",
+            "scoreGroupSuit":     "={{$json.s_group}}",
+            "scorePriceSuit":     "={{$json.s_price}}",
+            "scoreTravelConv":    "={{$json.s_travel}}",
+            "scoreCompleteness":  "={{$json.s_complete}}",
+            "scoreUniqueness":    "={{$json.s_unique}}",
+            "scoredAt":       "={{$now}}"
+          }
+        },
+        "matchingColumns": ["restaurantName"]
+      },
+      "id": "node_005",
+      "name": "Write Score to Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Watch clean_data — New Row":   { "main": [[{ "node": "Calculate Sub-Scores",         "type": "main", "index": 0 }]] },
+    "Calculate Sub-Scores":          { "main": [[{ "node": "Claude API — Uniqueness Score", "type": "main", "index": 0 }]] },
+    "Claude API — Uniqueness Score": { "main": [[{ "node": "Compute Total Score",           "type": "main", "index": 0 }]] },
+    "Compute Total Score":           { "main": [[{ "node": "Write Score to Sheets",          "type": "main", "index": 0 }]] }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "tags": ["ai-food-assistant", "restaurant-scorer", "automation"],
+  "meta": {
+    "description": "Watches clean_data Google Sheet for new rows. For each new restaurant, calculates 5 sub-scores locally, calls Claude Haiku for uniqueness score (1-10), computes totalScore, and writes the full scoring breakdown back to the scoring tab.",
+    "setupInstructions": [
+      "1. Import this JSON into n8n (Workflows → Import from File)",
+      "2. Replace {{GOOGLE_SPREADSHEET_ID}} with your actual Sheets ID",
+      "3. Set up Google Sheets OAuth2 credential in n8n",
+      "4. Set up HTTP Header Auth credential with Anthropic API key (header: x-api-key)",
+      "5. Activate the workflow — it polls clean_data every minute for new rows"
+    ]
+  }
+}
