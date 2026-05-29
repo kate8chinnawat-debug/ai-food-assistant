@@ -1,0 +1,26 @@
+rank	restaurantName	area	foodType	totalScore	scoreRatingReview	scoreGroupSuit	scorePriceSuit	scoreTravelConv	scoreCompleteness	scoreUniqueness	googleRating	reviewCount	pricePerPersonTHB	sourceUrl
+1	The Commons Thonglor	Thonglor	Mixed/Food Hall	97.8	23.8	20	15	15	15.0	9	4.6	3248	300	https://www.google.com/maps/place/The+Commons+Thonglor
+2	Ekkamai 63 Street Food	Thonglor	Thai Street Food	93.6	22.6	20	15	15	15.0	6	4.2	1240	170	https://www.wongnai.com/restaurants/ekkamai-63-street-food
+3	The Never Ending Summer	Thonglor	Thai	90.1	24.1	20	12	10	15.0	9	4.7	1624	500	https://www.wongnai.com/restaurants/never-ending-summer
+4	Meatlicious BBQ	Thonglor	Western	89.42	21.42	20	12	15	15.0	6	4.3	852	425	https://www.google.com/maps/place/Meatlicious+Thonglor
+5	Grease Restaurant & Bar	Thonglor	Western	89.3	22.3	20	12	15	15.0	5	4.1	1463	375	https://www.google.com/maps/place/Grease+Restaurant+Bar
+6	Soul Food Mahanakorn	Thonglor	Thai	87.5	23.5	20	12	10	15.0	7	4.5	1182	375	https://www.google.com/maps/place/Soul+Food+Mahanakorn
+7	Broccoli Revolution	Thonglor	Healthy/Vegan	85.82	20.82	20	12	10	15.0	8	4.4	762	375	https://www.wongnai.com/restaurants/broccoli-revolution
+8	Rabbit Hole Bar & Bistro	Thonglor	Western	83.62	19.62	20	12	10	15.0	7	4.3	672	450	https://www.google.com/maps/place/Rabbit+Hole+Thonglor
+9	Cocotte Bangkok	Thonglor	French	83.42	22.42	20	8	10	15.0	8	4.5	892	650	https://www.google.com/maps/place/Cocotte+Bangkok
+10	Kaizen Sushi Bar	Thonglor	Japanese	81.82	17.82	20	8	15	15.0	6	4.3	492	550	https://www.wongnai.com/restaurants/kaizen-sushi-thonglor
+11	Roast Coffee & Eatery	Thonglor	Cafe	81.2	23.2	10	12	15	15.0	6	4.4	2134	315	https://www.wongnai.com/restaurants/roast-thonglor
+12	Trattoria da Antonio	Thonglor	Italian	77.04	17.04	20	8	10	15.0	7	4.4	384	600	https://www.wongnai.com/restaurants/trattoria-da-antonio
+13	Mia Dining	Thonglor	Mediterranean	76.62	16.62	20	8	10	15.0	7	4.5	312	725	https://www.wongnai.com/restaurants/mia-dining-thonglor
+14	Appia Italian Restaurant	Thonglor	Italian	75.62	19.62	20	8	5	15.0	8	4.6	582	750	https://www.google.com/maps/place/Appia+Bangkok
+15	Quince Bangkok	Thonglor	Mediterranean	72.48	17.48	20	8	5	15.0	7	4.4	428	650	https://www.wongnai.com/restaurants/quince-bangkok
+16	Kikusui Japanese Restaurant	Thonglor	Japanese	72.14	16.14	20	3	10	15.0	8	4.4	294	850	https://www.google.com/maps/place/Kikusui+Bangkok
+17	Little Monster Gourmet Burger	Thonglor	Western	71.98	17.98	10	15	10	15.0	4	4.2	538	300	https://www.wongnai.com/restaurants/little-monster-burger
+18	Teens of Thailand	Thonglor	Thai	70.42	16.42	10	12	10	15.0	7	4.2	382	425	https://www.google.com/maps/place/Teens+of+Thailand
+19	Kuppa Restaurant	Thonglor	Western	69.9	22.9	10	12	5	15.0	5	4.3	1098	350	https://www.wongnai.com/restaurants/kuppa
+20	Mr. Jones Orphanage	Thonglor	Western	69.56	20.56	10	15	5	15.0	4	4.1	826	230	https://www.wongnai.com/restaurants/mr-jones-orphanage
+21	Bo.lan	Thonglor	Thai Fine Dining	66.68	23.68	10	3	5	15.0	10	4.8	928	1600	https://www.wongnai.com/restaurants/bolan
+22	Akira Back Bangkok	Thonglor	Japanese Fusion	63.94	20.94	10	3	5	15.0	10	4.7	684	1250	https://www.google.com/maps/place/Akira+Back+Bangkok
+23	Factory Coffee Thonglor	Thonglor	Cafe	61.54	18.54	0	15	10	15.0	3	4.3	564	200	https://www.google.com/maps/place/Factory+Coffee+Thonglor
+24	Sühring	Thonglor	German Fine Dining	60.88	17.88	10	3	5	15.0	10	4.9	318	3750	https://www.google.com/maps/place/Sühring
+25	Paste Bangkok	Thonglor	Thai Fine Dining	60.38	18.38	10	3	5	15.0	9	4.6	458	1150	https://www.wongnai.com/restaurants/paste-bangkok

@@ -1,0 +1,66 @@
+{
+  "name": "AI Restaurant Scorer — Thonglor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * *" }]
+        }
+      },
+      "id": "node_001",
+      "name": "Daily Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const restaurants = [\n  { name: 'The Commons Thonglor', rating: 4.6, reviews: 3248, price: 300, btsM: 350, group: true },\n  { name: 'Ekkamai 63 Street Food', rating: 4.2, reviews: 1240, price: 170, btsM: 200, group: true },\n  { name: 'The Never Ending Summer', rating: 4.7, reviews: 1624, price: 500, btsM: 800, group: true },\n  { name: 'Meatlicious BBQ', rating: 4.3, reviews: 852, price: 425, btsM: 400, group: true },\n  { name: 'Grease Restaurant & Bar', rating: 4.1, reviews: 1463, price: 375, btsM: 500, group: true }\n];\nconst scored = restaurants.map((r,i) => {\n  const s1 = Math.round(Math.min(25, (r.rating/5)*15 + Math.min(10, r.reviews/100))*10)/10;\n  const s2 = r.group ? 20 : 5;\n  const s3 = r.price<=300?15:r.price<=500?12:8;\n  const s4 = r.btsM<=500?15:r.btsM<=1000?10:5;\n  const s5 = 15;\n  const s6 = [9,6,9,6,5][i];\n  const total = Math.round((s1+s2+s3+s4+s5+s6)*10)/10;\n  return { rank: i+1, restaurantName: r.name, totalScore: total, scoredAt: new Date().toISOString() };\n}).sort((a,b)=>b.totalScore-a.totalScore).map((r,i)=>({...r,rank:i+1}));\nreturn [{ json: { results: scored, top1: scored[0].restaurantName, top1Score: scored[0].totalScore, message: 'Scoring completed by n8n automation' } }];"
+      },
+      "id": "node_002",
+      "name": "Score Restaurants (Python logic)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{ $vars.ANTHROPIC_API_KEY }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={\n  \"model\": \"claude-haiku-4-5-20251001\",\n  \"max_tokens\": 100,\n  \"messages\": [{\n    \"role\": \"user\",\n    \"content\": \"Top restaurant for team dinner in Thonglor: {{ $json.top1 }} scored {{ $json.top1Score }}/100. Write a 1-sentence recommendation under 20 words.\"\n  }]\n}"
+      },
+      "id": "node_003",
+      "name": "Claude API — Get Recommendation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const scores = $('Score Restaurants (Python logic)').first().json;\nconst claudeResp = $input.first().json;\nconst recommendation = claudeResp.content?.[0]?.text || 'Top pick for team dinner.';\nreturn [{ json: {\n  status: 'SUCCESS',\n  automationName: 'AI Restaurant Scorer — Thonglor',\n  completedAt: new Date().toISOString(),\n  top1: scores.top1,\n  top1Score: scores.top1Score,\n  claudeRecommendation: recommendation,\n  allScores: scores.results\n}}];"
+      },
+      "id": "node_004",
+      "name": "Build Final Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [920, 300]
+    }
+  ],
+  "connections": {
+    "Daily Schedule Trigger":          { "main": [[{ "node": "Score Restaurants (Python logic)", "type": "main", "index": 0 }]] },
+    "Score Restaurants (Python logic)":{ "main": [[{ "node": "Claude API — Get Recommendation",  "type": "main", "index": 0 }]] },
+    "Claude API — Get Recommendation": { "main": [[{ "node": "Build Final Report",               "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": ["ai-food-assistant", "thonglor", "restaurant-scorer"]
+}

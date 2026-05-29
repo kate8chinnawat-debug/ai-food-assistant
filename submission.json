@@ -6,31 +6,33 @@
   "teamSize": 10,
   "deliverables": {
     "1_htmlUrl": "https://glittering-granita-4b9e17.netlify.app/",
-    "2_sheetsUrl": "https://docs.google.com/spreadsheets/d/REPLACE_WITH_YOUR_SHEET_ID/edit?usp=sharing",
+    "2_sheetsUrl": "https://docs.google.com/spreadsheets/d/1EOItk9RFWjj_5x0iOaThri8LiBZRDw-7S1n3qBd0SMM/edit?usp=sharing",
     "3_scrapingEvidence": {
       "apifyRunUrl": "https://console.apify.com/actors/runs/RUN_mock_thonglor_20260529",
       "datasetExportUrl": "https://api.apify.com/v2/datasets/MOCK_DATASET_ID/items",
       "rawDataFile": "phase1_raw_data.json",
       "description": "Apify google-maps-scraper: 15 records. Wongnai via Browse AI: 10 records. Total: 25 records from 2 sources."
     },
-    "4_promptHistoryUrl": "prompt_history.md (local) — share as Google Doc for submission",
+    "4_promptHistoryUrl": "https://docs.google.com/document/d/19JYwK1Cs_cCz4hWbWPbGUUCIGryjSqI207srng2AYZs/edit?usp=sharing",
     "5_automationEvidence": {
-      "workflowFile": "phase5_n8n_workflow.json",
-      "description": "n8n 5-node workflow: Google Sheets Watch → Claude Haiku API (uniqueness score) → compute total → write to scoring tab",
-      "executionDescription": "Import JSON into n8n, activate workflow, add test row to clean_data — workflow auto-scores in ~8 seconds"
+      "workflowUrl": "https://n8n-external.exservice.io/workflow/8IIqNQh0tSGB4fsa?projectId=PxgkFBoFH69NAE9P&uiContext=workflow_list",
+      "workflowFile": "phase5_n8n_workflow_simple.json",
+      "description": "n8n 4-node workflow: Daily Schedule Trigger → Score Restaurants (JS scoring logic) → Claude Haiku API (recommendation) → Build Final Report. Executed successfully in 1.295s.",
+      "executionResult": "Success in 1.295s — Claude responded: Gaggan Anor in Thonglor is an excellent choice for team dinners, offering innovative Indian cuisine in an elegant setting that accommodates groups well.",
+      "executionScreenshot": "Take screenshot of n8n canvas showing all 4 green nodes"
     },
     "6_top3Recommendation": [
       {
         "rank": 1,
         "name": "The Commons Thonglor",
         "score": 97.8,
-        "reasoning": "Best flexibility, value (฿300/pp), and BTS access for mixed-preference teams"
+        "reasoning": "Best flexibility, value (300 THB/pp), and BTS access for mixed-preference teams"
       },
       {
         "rank": 2,
         "name": "Ekkamai 63 Street Food",
         "score": 93.6,
-        "reasoning": "Most budget-friendly (฿170/pp), closest to BTS Ekkamai, authentic Thai experience"
+        "reasoning": "Most budget-friendly (170 THB/pp), closest to BTS Ekkamai, authentic Thai experience"
       },
       {
         "rank": 3,
@@ -39,8 +41,8 @@
         "reasoning": "Highest rating (4.7), iconic heritage venue, true group menu — best for special occasions"
       }
     ],
-    "7_reflection": "Building this AI workflow taught me that data quality gates matter more than I expected. The biggest challenge was normalizing price strings (฿฿ vs '200-400 THB/person' vs just '฿') — I had to build a robust parser before any scoring was meaningful. The scoring model's locked weights forced disciplined thinking: I couldn't adjust weights to favour a restaurant I personally preferred, which surfaced The Commons as the clear winner despite not being the 'fanciest' option. The n8n automation was simpler than expected once the API calls were figured out. If I were to improve this workflow, I'd add a second AI pass to cross-validate uniqueness scores against multiple review sources, and automate the HTML rebuild whenever new data arrives in the scoring sheet.",
-    "8_codeRepoUrl": "https://github.com/YOUR_USERNAME/ai-food-assistant (push repo files then update this URL)"
+    "7_reflection": "Building this AI workflow taught me that data quality gates matter more than I expected. The biggest challenge was normalizing price strings — I had to build a robust parser before any scoring was meaningful. The scoring model's locked weights forced disciplined thinking: I could not adjust weights to favour a restaurant I personally preferred, which surfaced The Commons as the clear winner despite not being the fanciest option. The n8n automation was simpler than expected once the API calls were figured out. If I were to improve this workflow, I would add a second AI pass to cross-validate uniqueness scores against multiple review sources, and automate the HTML rebuild whenever new data arrives in the scoring sheet.",
+    "8_codeRepoUrl": "https://github.com/kate8chinnawat-debug/ai-food-assistant"
   },
   "validationChecks": {
     "restaurantCount": 25,
@@ -48,9 +50,10 @@
     "weightSum": 100,
     "sectionIdsPresent": 10,
     "top3Count": 3,
-    "reflectionCharCount": 764,
-    "allMandatoryDeliverablesFilled": true,
+    "reflectionCharCount": 724,
+    "allMandatoryDeliverablesFilled": false,
+    "pendingItems": ["2_sheetsUrl", "3_scrapingEvidence_screenshot", "4_promptHistoryUrl_gdoc", "5_automationEvidence_screenshot"],
     "bonusCompleted": true,
-    "bonusItems": ["score-breakdown-chart", "csv-export-button", "setup_sheets.py", "README.md", "vercel.json", "requirements.txt", ".gitignore", "code-repo-scaffold"]
+    "bonusItems": ["score-breakdown-chart", "csv-export-button", "setup_sheets.py", "README.md", "vercel.json", "requirements.txt", ".gitignore", "code-repo"]
   }
 }

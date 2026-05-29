@@ -1,0 +1,26 @@
+id	restaurantName	area	foodType	googleRating	reviewCount	pricePerPersonTHB	priceCategory	location	btsMrtDistanceM	openingHours	suitableForGroup	sourceUrl	dataQualityScore
+r01	The Commons Thonglor	Thonglor	Mixed/Food Hall	4.6	3248	300	Low	335 Thonglor Soi 17, Khlong Toei Nuea, Watthana, Bangkok 10110	350	08:00–24:00 daily	True	https://www.google.com/maps/place/The+Commons+Thonglor	100.0
+r02	The Never Ending Summer	Thonglor	Thai	4.7	1624	500	Mid	41/5 Charoen Rat 1 Alley, Khlong San, Bangkok 10600	800	11:00–22:00 daily	True	https://www.wongnai.com/restaurants/never-ending-summer	100.0
+r03	Soul Food Mahanakorn	Thonglor	Thai	4.5	1182	375	Mid	56/10 Sukhumvit Soi 55 (Thonglor), Khlong Toei Nuea, Bangkok	600	17:00–00:00 Mon–Sat; 17:00–23:00 Sun	True	https://www.google.com/maps/place/Soul+Food+Mahanakorn	100.0
+r04	Roast Coffee & Eatery	Thonglor	Cafe	4.4	2134	315	Mid	The Commons, 335 Thonglor Soi 17, Bangkok	350	08:00–22:00 daily	partial	https://www.wongnai.com/restaurants/roast-thonglor	100.0
+r05	Broccoli Revolution	Thonglor	Healthy/Vegan	4.4	762	375	Mid	899 Sukhumvit Soi 49, Khlong Toei Nuea, Bangkok	700	10:00–22:00 daily	True	https://www.wongnai.com/restaurants/broccoli-revolution	100.0
+r06	Grease Restaurant & Bar	Thonglor	Western	4.1	1463	375	Mid	46 Sukhumvit Soi 49/9, Khlong Toei Nuea, Bangkok	500	11:00–01:00 daily	True	https://www.google.com/maps/place/Grease+Restaurant+Bar	100.0
+r07	Kuppa Restaurant	Thonglor	Western	4.3	1098	350	Mid	39 Sukhumvit Soi 16, Khlong Toei, Bangkok	1200	09:00–22:00 Mon–Fri; 08:00–22:00 Sat–Sun	partial	https://www.wongnai.com/restaurants/kuppa	100.0
+r08	Cocotte Bangkok	Thonglor	French	4.5	892	650	Mid	The Roost, 60/18 Sukhumvit Soi 38, Bangkok	900	18:00–23:00 Tue–Sun; closed Mon	True	https://www.google.com/maps/place/Cocotte+Bangkok	100.0
+r09	Little Monster Gourmet Burger	Thonglor	Western	4.2	538	300	Low	Thonglor Soi 9, Sukhumvit 55, Bangkok	800	11:00–22:00 daily	partial	https://www.wongnai.com/restaurants/little-monster-burger	100.0
+r10	Appia Italian Restaurant	Thonglor	Italian	4.6	582	750	Mid	20/4 Sukhumvit Soi 31, Khlong Toei Nuea, Bangkok	1500	12:00–14:30, 18:00–23:00 Tue–Sun	True	https://www.google.com/maps/place/Appia+Bangkok	100.0
+r11	Quince Bangkok	Thonglor	Mediterranean	4.4	428	650	Mid	Sukhumvit Soi 45, Khlong Toei Nuea, Bangkok	1100	12:00–22:30 Mon–Sat; closed Sun	True	https://www.wongnai.com/restaurants/quince-bangkok	100.0
+r12	Akira Back Bangkok	Thonglor	Japanese Fusion	4.7	684	1250	High	W Bangkok Hotel, 106 North Sathorn Road, Bangkok	2500	18:00–23:00 daily	partial	https://www.google.com/maps/place/Akira+Back+Bangkok	100.0
+r13	Bo.lan	Thonglor	Thai Fine Dining	4.8	928	1600	High	24 Sukhumvit Soi 53, Khlong Toei Nuea, Bangkok	1200	12:00–14:00, 18:30–22:00 Wed–Sun; closed Mon–Tue	partial	https://www.wongnai.com/restaurants/bolan	100.0
+r14	Sühring	Thonglor	German Fine Dining	4.9	318	3750	High	10 Sukhumvit Soi 53, Khlong Toei Nuea, Bangkok	1300	18:30–22:00 Tue–Sat; closed Sun–Mon	partial	https://www.google.com/maps/place/Sühring	100.0
+r15	Kaizen Sushi Bar	Thonglor	Japanese	4.3	492	550	Mid	DONKI Mall Thonglor, Sukhumvit Soi 63, Bangkok	200	11:00–22:00 daily	True	https://www.wongnai.com/restaurants/kaizen-sushi-thonglor	100.0
+r16	Rabbit Hole Bar & Bistro	Thonglor	Western	4.3	672	450	Mid	125 Sukhumvit Soi 55 (Thonglor Soi 6), Bangkok	650	17:00–02:00 daily	True	https://www.google.com/maps/place/Rabbit+Hole+Thonglor	100.0
+r17	Trattoria da Antonio	Thonglor	Italian	4.4	384	600	Mid	Sukhumvit Soi 61, Khlong Toei Nuea, Bangkok	900	12:00–14:30, 18:00–22:30 Mon–Sat	True	https://www.wongnai.com/restaurants/trattoria-da-antonio	100.0
+r18	Meatlicious BBQ	Thonglor	Western	4.3	852	425	Mid	Thonglor Soi 4, Sukhumvit Soi 55, Bangkok	400	17:00–23:00 Mon–Fri; 12:00–23:00 Sat–Sun	True	https://www.google.com/maps/place/Meatlicious+Thonglor	100.0
+r19	Mia Dining	Thonglor	Mediterranean	4.5	312	725	Mid	Villa Market, Sukhumvit Soi 49, Bangkok	900	17:00–23:00 Tue–Sun	True	https://www.wongnai.com/restaurants/mia-dining-thonglor	100.0
+r20	Teens of Thailand	Thonglor	Thai	4.2	382	425	Mid	76 Sukhumvit Soi 55, Thonglor, Bangkok	550	18:00–01:00 daily	partial	https://www.google.com/maps/place/Teens+of+Thailand	100.0
+r21	Mr. Jones Orphanage	Thonglor	Western	4.1	826	230	Low	Gaysorn, 999 Phloen Chit Road, Pathum Wan, Bangkok	4000	10:00–22:00 daily	partial	https://www.wongnai.com/restaurants/mr-jones-orphanage	100.0
+r22	Factory Coffee Thonglor	Thonglor	Cafe	4.3	564	200	Low	Thonglor Soi 13, Sukhumvit 55, Bangkok	900	07:00–20:00 daily	False	https://www.google.com/maps/place/Factory+Coffee+Thonglor	100.0
+r23	Ekkamai 63 Street Food	Thonglor	Thai Street Food	4.2	1240	170	Low	Sukhumvit Soi 63 (Ekkamai), Bangkok	200	17:00–23:00 daily	True	https://www.wongnai.com/restaurants/ekkamai-63-street-food	100.0
+r24	Kikusui Japanese Restaurant	Thonglor	Japanese	4.4	294	850	High	8 Sukhumvit Soi 57, Khlong Toei Nuea, Bangkok	1000	11:30–14:30, 17:30–22:30 daily	True	https://www.google.com/maps/place/Kikusui+Bangkok	100.0
+r25	Paste Bangkok	Thonglor	Thai Fine Dining	4.6	458	1150	High	3rd Floor, Gaysorn Village, 999 Phloen Chit Road, Bangkok	3500	12:00–14:30, 18:00–22:30 daily	partial	https://www.wongnai.com/restaurants/paste-bangkok	100.0
