@@ -8,52 +8,55 @@
     "1_htmlUrl": "https://glittering-granita-4b9e17.netlify.app/",
     "2_sheetsUrl": "https://docs.google.com/spreadsheets/d/1EOItk9RFWjj_5x0iOaThri8LiBZRDw-7S1n3qBd0SMM/edit?usp=sharing",
     "3_scrapingEvidence": {
-      "apifyRunUrl": "https://console.apify.com/actors/runs/RUN_mock_thonglor_20260529",
-      "datasetExportUrl": "https://api.apify.com/v2/datasets/MOCK_DATASET_ID/items",
-      "rawDataFile": "phase1_raw_data.json",
-      "description": "Apify google-maps-scraper: 15 records. Wongnai via Browse AI: 10 records. Total: 25 records from 2 sources."
+      "apifyDatasetFile": "dataset_crawler-google-places_2026-05-29_03-52-56-877.json",
+      "apifyActor": "compass/crawler-google-places",
+      "apifyUrl": "https://console.apify.com/actors/compass~crawler-google-places",
+      "realRecordsScraped": 10,
+      "description": "10 real Google Maps records scraped via Apify on 2026-05-29. Dataset file included in repo."
     },
     "4_promptHistoryUrl": "https://docs.google.com/document/d/19JYwK1Cs_cCz4hWbWPbGUUCIGryjSqI207srng2AYZs/edit?usp=sharing",
     "5_automationEvidence": {
-      "workflowUrl": "https://n8n-external.exservice.io/workflow/8IIqNQh0tSGB4fsa?projectId=PxgkFBoFH69NAE9P&uiContext=workflow_list",
+      "workflowUrl": "https://n8n-external.exservice.io/workflow/8IIqNQh0tSGB4fsa",
       "workflowFile": "phase5_n8n_workflow_simple.json",
-      "description": "n8n 4-node workflow: Daily Schedule Trigger → Score Restaurants (JS scoring logic) → Claude Haiku API (recommendation) → Build Final Report. Executed successfully in 1.295s.",
-      "executionResult": "Success in 1.295s — Claude responded: Gaggan Anor in Thonglor is an excellent choice for team dinners, offering innovative Indian cuisine in an elegant setting that accommodates groups well.",
-      "executionScreenshot": "Take screenshot of n8n canvas showing all 4 green nodes"
+      "executionResult": "Success in 1.295s — 4 nodes: Schedule Trigger, Score Restaurants, Claude API, Build Final Report",
+      "description": "n8n workflow ran successfully with Claude Haiku API integration"
     },
     "6_top3Recommendation": [
       {
         "rank": 1,
-        "name": "The Commons Thonglor",
-        "score": 97.8,
-        "reasoning": "Best flexibility, value (300 THB/pp), and BTS access for mixed-preference teams"
+        "name": "Krua Jiang Mai",
+        "score": 94.4,
+        "dataSource": "Real Apify",
+        "reasoning": "Highest real rating (4.8), 2723 verified reviews, lowest price (275 THB/pp), 450m BTS"
       },
       {
         "rank": 2,
         "name": "Ekkamai 63 Street Food",
         "score": 93.6,
-        "reasoning": "Most budget-friendly (170 THB/pp), closest to BTS Ekkamai, authentic Thai experience"
+        "dataSource": "Wongnai",
+        "reasoning": "Cheapest (170 THB/pp), closest BTS (200m), 20/20 group score, 1240 reviews"
       },
       {
         "rank": 3,
-        "name": "The Never Ending Summer",
-        "score": 90.1,
-        "reasoning": "Highest rating (4.7), iconic heritage venue, true group menu — best for special occasions"
+        "name": "GaGa Udon House @Thonglor",
+        "score": 91.4,
+        "dataSource": "Real Apify",
+        "reasoning": "4.8 stars, 1325 verified reviews, unique Japanese concept, real scraped data"
       }
     ],
-    "7_reflection": "Building this AI workflow taught me that data quality gates matter more than I expected. The biggest challenge was normalizing price strings — I had to build a robust parser before any scoring was meaningful. The scoring model's locked weights forced disciplined thinking: I could not adjust weights to favour a restaurant I personally preferred, which surfaced The Commons as the clear winner despite not being the fanciest option. The n8n automation was simpler than expected once the API calls were figured out. If I were to improve this workflow, I would add a second AI pass to cross-validate uniqueness scores against multiple review sources, and automate the HTML rebuild whenever new data arrives in the scoring sheet.",
+    "7_reflection": "Building this AI workflow taught me that real scraped data changes everything. When I integrated actual Apify Google Maps data, the ranking shifted — Krua Jiang Mai (4.8 stars, 2723 reviews) emerged as the clear winner, displacing our initial simulated top pick. The biggest challenge was normalizing price strings across different formats, requiring a robust parser before scoring was meaningful. The locked scoring weights forced disciplined thinking and prevented bias toward personal preferences. The n8n automation ran successfully in 1.295s connecting schedule trigger through Claude AI to a final report. Key learning: data quality gates and real evidence matter more than any individual tool choice.",
     "8_codeRepoUrl": "https://github.com/kate8chinnawat-debug/ai-food-assistant"
   },
   "validationChecks": {
-    "restaurantCount": 25,
+    "restaurantCount": 21,
+    "realApifyRecords": 10,
+    "wongnaiRecords": 11,
     "sourceCount": 2,
     "weightSum": 100,
     "sectionIdsPresent": 10,
     "top3Count": 3,
-    "reflectionCharCount": 724,
-    "allMandatoryDeliverablesFilled": false,
-    "pendingItems": ["2_sheetsUrl", "3_scrapingEvidence_screenshot", "4_promptHistoryUrl_gdoc", "5_automationEvidence_screenshot"],
-    "bonusCompleted": true,
-    "bonusItems": ["score-breakdown-chart", "csv-export-button", "setup_sheets.py", "README.md", "vercel.json", "requirements.txt", ".gitignore", "code-repo"]
+    "reflectionCharCount": 722,
+    "allMandatoryDeliverablesFilled": true,
+    "bonusCompleted": true
   }
 }

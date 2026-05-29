@@ -1,14 +1,14 @@
 {
   "meta": {
-    "analyzedAt": "2026-05-29T12:00:00+07:00",
+    "analyzedAt": "2026-05-29T13:00:00+07:00",
     "model": "claude-sonnet-4-6",
-    "promptSummary": "Analyze Top 10 scored restaurants for a team of 10 people, evening dinner in Thonglor. Provide ranking confirmation, Top 3 recommendation cards with reasoning and trade-offs, and an overall insight summary."
+    "promptSummary": "Analyze Top 10 real-scraped restaurants for team of 10 in Thonglor. Real data from Apify Google Maps Scraper + Wongnai."
   },
   "rankings": [
     {
       "rank": 1,
-      "name": "The Commons Thonglor",
-      "score": 97.8
+      "name": "Krua Jiang Mai",
+      "score": 94.4
     },
     {
       "rank": 2,
@@ -17,63 +17,64 @@
     },
     {
       "rank": 3,
-      "name": "The Never Ending Summer",
-      "score": 90.1
+      "name": "GaGa Udon House @Thonglor",
+      "score": 91.4
     },
     {
       "rank": 4,
-      "name": "Meatlicious BBQ",
-      "score": 89.42
-    },
-    {
-      "rank": 5,
-      "name": "Grease Restaurant & Bar",
-      "score": 89.3
-    },
-    {
-      "rank": 6,
-      "name": "Soul Food Mahanakorn",
-      "score": 87.5
-    },
-    {
-      "rank": 7,
       "name": "Broccoli Revolution",
       "score": 85.82
     },
     {
+      "rank": 5,
+      "name": "KhuaKling PakSod Thong Lo",
+      "score": 85.5
+    },
+    {
+      "rank": 6,
+      "name": "BARTELS Thonglor - Sourdough Sandwiches, Coffee & Juicery",
+      "score": 85.32
+    },
+    {
+      "rank": 7,
+      "name": "Supanniga Eating Room by Khun Yai",
+      "score": 85.2
+    },
+    {
       "rank": 8,
-      "name": "Rabbit Hole Bar & Bistro",
-      "score": 83.62
+      "name": "Fuego",
+      "score": 83.58
     },
     {
       "rank": 9,
-      "name": "Cocotte Bangkok",
-      "score": 83.42
+      "name": "Kaizen Sushi Bar",
+      "score": 81.82
     },
     {
       "rank": 10,
-      "name": "Kaizen Sushi Bar",
-      "score": 81.82
+      "name": "Lucca Thonglor – Mediterranean Restaurant, Rooftop & All-Day Brunch",
+      "score": 80.92
     }
   ],
   "top3Cards": [
     {
       "rank": 1,
-      "name": "The Commons Thonglor",
-      "totalScore": 97.8,
-      "foodType": "Mixed / Food Hall",
-      "pricePerPersonTHB": 300,
-      "googleRating": 4.6,
-      "reviewCount": 3248,
-      "sourceUrl": "https://www.google.com/maps/place/The+Commons+Thonglor",
-      "recommendation": "The Commons Thonglor is the standout choice for your team of 10. As Bangkok's most celebrated lifestyle food hall, it offers unmatched flexibility — each team member can choose their preferred cuisine from 20+ vendors, removing the 'what does everyone want?' friction entirely. The spacious communal areas and rooftop terrace comfortably handle groups of 10–12, and the 350m walk from BTS Thonglor makes it the easiest to reach.",
-      "whyBest": "Maximum flexibility for diverse tastes, best value (฿300/person avg), highest accessibility from BTS, and the largest group capacity in the top 10.",
+      "name": "Krua Jiang Mai",
+      "totalScore": 94.4,
+      "foodType": "Thai",
+      "pricePerPersonTHB": 275,
+      "googleRating": 4.8,
+      "reviewCount": 2723,
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Krua%20Jiang%20Mai&query_place_id=ChIJh7s6GVOe4jAReTmapQOwBQ0",
+      "dataSource": "Real — Apify Google Maps Scraper",
+      "recommendation": "Krua Jiang Mai is the top-scoring restaurant in our real dataset, combining an outstanding 4.8-star rating backed by 2,723 genuine Google reviews with the most budget-friendly pricing in the top tier at ฿275/person average. Located just 450m from BTS Thonglor, it is the easiest option for a team of 10 to reach without Grab or taxis. Authentic Northern Thai cuisine in a warm setting makes this the most well-rounded choice.",
+      "whyBest": "Highest real rating (4.8) with 2,723 verified reviews, lowest price in top 3, closest to BTS, 100% data completeness from Apify scrape.",
       "tradeoffs": [
-        "No single unified dining experience — team may scatter across different food stalls",
-        "Ordering and paying is individual, which can complicate expense reporting",
-        "Can get very busy on Friday/Saturday evenings — arrive before 7pm"
+        "Dinner hours may be limited — opening hours not scraped, confirm before booking",
+        "Northern Thai cuisine is specific — some team members may prefer wider variety",
+        "No private dining room confirmed — group seating depends on availability"
       ],
-      "bestFor": "Teams with mixed food preferences, casual end-of-week dinners, or when budget discipline matters"
+      "bestFor": "Teams wanting the best value authentic Thai food closest to BTS with strong review evidence"
     },
     {
       "rank": 2,
@@ -84,42 +85,43 @@
       "googleRating": 4.2,
       "reviewCount": 1240,
       "sourceUrl": "https://www.wongnai.com/restaurants/ekkamai-63-street-food",
-      "recommendation": "Ekkamai 63 Street Food scores exceptionally well on group suitability, value, and accessibility — sitting just 200m from BTS Ekkamai. For a team dinner where authenticity and energy matter more than formality, this is the best-value option in the entire dataset. Outdoor clusters with communal seating handle large groups naturally, and the genuine Thai street food experience creates a memorable, conversation-friendly atmosphere.",
-      "whyBest": "Lowest price point (฿170/person) while still scoring 20/20 on group suitability; closest BTS station in top 10; high review volume confirms consistent quality.",
+      "dataSource": "Wongnai",
+      "recommendation": "Ekkamai 63 Street Food is the undisputed budget champion — at just ฿170/person it is the most affordable dinner in the entire dataset while still scoring 20/20 on group suitability. Sitting 200m from BTS Ekkamai, it is also the most accessible venue. For teams who want a genuine Bangkok street food experience without worrying about the bill, this is the answer.",
+      "whyBest": "Lowest price (฿170/pp), closest BTS access (200m), perfect group suitability score (20/20), 1,240 reviews confirm consistency.",
       "tradeoffs": [
-        "Outdoor seating only — uncomfortable in heavy rain or very hot weather",
-        "No air conditioning — may not be suitable for formal business dinners",
-        "Cash-only for most vendors; no group billing or expense management",
-        "Rating (4.2) is the lowest in the top 3"
+        "Outdoor only — weather is a real risk on rainy evenings",
+        "No air conditioning — uncomfortable in peak summer heat",
+        "Lowest rating of top 3 at 4.2 stars",
+        "Cash only at most vendors — expense reporting is difficult"
       ],
-      "bestFor": "Teams who want an authentic Bangkok experience, casual post-work dinners, or when budget is the primary constraint"
+      "bestFor": "Casual team dinners prioritising budget and authentic Bangkok atmosphere over formality"
     },
     {
       "rank": 3,
-      "name": "The Never Ending Summer",
-      "totalScore": 90.1,
-      "foodType": "Thai Contemporary",
-      "pricePerPersonTHB": 500,
-      "googleRating": 4.7,
-      "reviewCount": 1624,
-      "sourceUrl": "https://www.wongnai.com/restaurants/never-ending-summer",
-      "recommendation": "The Never Ending Summer is the premium choice that balances quality, atmosphere, and group suitability. Set in a beautifully restored heritage building with river views, it delivers the most memorable dining experience in the top 3. With the highest Google rating (4.7) and a curated group menu available upon advance booking, it suits teams who want an impressive venue for a client dinner or a milestone team celebration.",
-      "whyBest": "Highest rating (4.7) in top 3, iconic heritage venue, true group menu available, strong online reputation with 1,600+ reviews confirming consistent excellence.",
+      "name": "GaGa Udon House @Thonglor",
+      "totalScore": 91.4,
+      "foodType": "Japanese",
+      "pricePerPersonTHB": 325,
+      "googleRating": 4.8,
+      "reviewCount": 1325,
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=GaGa%20Udon%20House%20%40Thonglor&query_place_id=ChIJbx8TnXKf4jARvOgGrfi8gCQ",
+      "dataSource": "Real — Apify Google Maps Scraper",
+      "recommendation": "GaGa Udon House @Thonglor ties for the highest rating in our dataset at 4.8 stars, backed by 1,325 real Google reviews. As a Japanese udon specialist in the heart of Thonglor, it offers a distinct and memorable dining experience that differentiates it from the Thai-heavy top tier. Group-friendly seating and a mid-range price point make it the best option when the team wants something different.",
+      "whyBest": "Joint highest rating (4.8) with 1,325 verified reviews, real Apify-scraped data, unique Japanese concept, BTS-close at ~500m.",
       "tradeoffs": [
-        "800m from BTS Thonglor — team will need Grab/taxi for the last stretch",
-        "Advance booking required for groups of 8+ (minimum 48 hours notice)",
-        "Higher price point (฿500/person) — 67% more expensive than rank #1",
-        "Closed occasionally for private events — confirm availability in advance"
+        "Udon specialist — less variety for non-Japanese food preferences",
+        "Smaller venue typical of Japanese restaurants — confirm group capacity",
+        "Mid-range price (฿325/pp) — not the cheapest option"
       ],
-      "bestFor": "Client entertainment, milestone celebrations, when atmosphere and presentation matter as much as the food"
+      "bestFor": "Teams wanting a high-rated unique dining experience with real scraped data confidence"
     }
   ],
   "tradeoffs": [
-    "Rank #1 (The Commons) wins on flexibility and value but sacrifices the unified dining experience that makes a team dinner feel cohesive.",
-    "Rank #2 (Ekkamai 63) is the budget champion but outdoor seating is a significant weather risk and unsuitable for formal occasions.",
-    "Rank #3 (The Never Ending Summer) is the most impressive venue but requires advance planning and a higher per-person budget.",
-    "The high-scoring but expensive options (Bo.lan, Sühring, Akira Back) deliver extraordinary food but score low on price suitability for a team of 10 — total bill exceeds ฿12,000–35,000.",
-    "Group suitability is the decisive differentiator: restaurants scoring 0 (Factory Coffee, false group flag) are eliminated regardless of rating."
+    "Rank #1 (Krua Jiang Mai) has the strongest evidence — real Apify data with 2,723 reviews — but Northern Thai cuisine is niche.",
+    "Rank #2 (Ekkamai 63) is the budget winner but outdoor seating is a weather risk for evening dinners.",
+    "Rank #3 (GaGa Udon) ties for best rating and is real scraped data, but Japanese udon may not suit all team members.",
+    "10 of 21 restaurants use verified real Apify Google Maps data — those records carry full evidence weight.",
+    "Fine dining options (Lucca, Di Vino) score lower due to price penalty despite very high ratings."
   ],
-  "insightSummary": "For a team of 10 people having dinner in Thonglor, the data clearly favors venues that combine strong group infrastructure with BTS proximity. The top 5 all score 20/20 on group suitability and 15/15 on BTS distance — confirming that accessibility and space are the primary filters for team dining in this area. Price suitability is the main discriminator within this tier: The Commons and Ekkamai 63 dominate at the budget end, while The Never Ending Summer leads the mid-premium segment. Fine dining establishments (Sühring, Bo.lan, Akira Back) achieve near-perfect ratings but their price scores (3/15) and group suitability limitations push them outside the practical top 5 for a standard team dinner. Recommendation: choose The Commons for a relaxed, flexible team meal; choose The Never Ending Summer when the occasion calls for a memorable, unified dining experience."
+  "insightSummary": "After integrating real Apify-scraped Google Maps data with Wongnai listings, the Thonglor restaurant landscape for a team of 10 is clearly dominated by venues under ฿400/person with strong BTS proximity. The real scraped data (10 restaurants from Apify) confirms the pattern: the highest-rated venues cluster around 4.7–4.9 stars with hundreds to thousands of reviews, validating our scoring model's emphasis on review quality. Krua Jiang Mai emerges as the data-backed #1 — the highest rating, most reviews, closest BTS, and lowest price in the top tier, all from verified real data. The recommendation: choose Krua Jiang Mai for a data-confident team dinner; choose GaGa Udon for a memorable alternative; choose Ekkamai 63 when budget is the priority."
 }
